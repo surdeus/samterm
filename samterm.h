@@ -166,7 +166,7 @@ void    flushtyping(bool);
 void    dumperrmsg(int, int, int, int);
 int screensize(int*,int*);
 
-#include "../sam/mesg.h"
+#include "sam/mesg.h"
 
 void    outTs(Tmesg, int);
 void    outT0(Tmesg);

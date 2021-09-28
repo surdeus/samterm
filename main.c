@@ -6,9 +6,11 @@
 #include <unistd.h>
 #include "flayer.h"
 #include "samterm.h"
+#include "config.h"
 
 extern uint64_t _bgpixel;
 extern void hmoveto(int, int64_t, Flayer *);
+extern const char *clipatom;
 
 Text    cmd;
 wchar_t    *scratch;
@@ -26,8 +28,6 @@ int64_t    typeesc = -1;
 bool    modified = false;       /* strange lookahead for menus */
 char    lock = 1;
 bool    hasunlocked = false;
-bool expandtabs = false;
-bool autoindent = false;
 char *machine = "localhost";
 int exfd = -1;
 const char *exname;
@@ -40,6 +40,20 @@ removeext(void)
         unlink(exname);
 }
 
+void
+installbindings(void)
+{
+    for (Binding *b = bindings; b->kind != Kend; b++)
+        installbinding(b->modifiers, b->keysym, b->kind, b->command, b->arg);
+}
+
+void
+installchords(void)
+{
+    for (Chord *c = chords; c->state1 != 0; c++)
+        installchord(c->state1, c->state2, c->command, c->target, c->arg);
+}
+
 int
 main(int argc, char *argv[])
 {
@@ -47,17 +61,17 @@ main(int argc, char *argv[])
     Text *t;
     Rectangle r;
     Flayer *nwhich;
-    char rcpath[PATH_MAX + 1] = {0};
     FILE *rc = NULL;
 
     setlocale(LC_ALL, "");
-    installdefaultbindings();
-    installdefaultchords();
-
-    if (getenv("SAMRC"))
-        strncpy(rcpath, getenv("SAMRC"), PATH_MAX);
-    else
-        snprintf(rcpath, PATH_MAX, "%s/.samrc", getenv("HOME") ? getenv("HOME") : ".");
+    installbindings();
+    installchords();
+	strncpy(backgroundspec, background, sizeof(backgroundspec) - 1);
+	strncpy(foregroundspec, foreground, sizeof(foregroundspec) - 1);
+	strncpy(borderspec, bordercolor, sizeof(borderspec) - 1);
+	strncpy(fontspec, fontstr, sizeof(fontspec) - 1);
+	clipatom = clipsrc ;
+	tabwidth = tabw ;
 
     while ((opt = getopt(argc, argv, "ef:n:r:")) != -1){
         switch (opt){
@@ -74,12 +88,6 @@ main(int argc, char *argv[])
                 atexit(removeext);
                 break;
         }
-    }
-
-    rc = fopen(rcpath, "r");
-    if (rc){
-        loadrcfile(rc);
-        fclose(rc);
     }
 
     getscreen(argc, argv);
