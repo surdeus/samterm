@@ -40,7 +40,6 @@ static Binding bindings[] ={
 
 	/* Delete. */
     {MODMASK, XK_u, Kcommand,  Cdelbol,     NULL},
-    {MODMASK|ShiftMask, XK_u, Kcommand, Cdeleol, NULL},
     {MODMASK, XK_BackSpace, Kcommand, Cdelword, NULL},
     {MODMASK, XK_w, Kcommand, Cdelword, 0},
 
