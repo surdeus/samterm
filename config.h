@@ -30,18 +30,26 @@ static Binding bindings[] ={
     /* Suppress control key combinations unless explicitly bound. */
     {MODMASK, XK_VoidSymbol,    Kcommand, Cnone,        NULL},
 
-    /* Motion commands following the WordStar diamond. */
+    /* Move. */
     {MODMASK, XK_k, Kcommand,  Clineup,     NULL},
     {MODMASK, XK_j, Kcommand,  Clinedown,   NULL},
     {MODMASK, XK_l, Kcommand,  Ccharright,  NULL},
     {MODMASK, XK_h, Kcommand,  Ccharleft,   NULL},
     {MODMASK, XK_e, Kcommand,  Ceol,   NULL},
     {MODMASK, XK_a, Kcommand,  Cbol,   NULL},
+
+	/* Delete. */
     {MODMASK, XK_u, Kcommand,  Cdelbol,     NULL},
-    {MODMASK, XK_BackSpace,     Kcommand,  Cdelword,    NULL},
+    {MODMASK|ShiftMask, XK_u, Kcommand, Cdeleol, NULL},
+    {MODMASK, XK_BackSpace, Kcommand, Cdelword, NULL},
+    {MODMASK, XK_w, Kcommand, Cdelword, 0},
+
+	/* Save file[s]. */
     {MODMASK, XK_s, Kcommand,  Cwrite,     NULL},
     {MODMASK|ShiftMask, XK_s, Kcommand,  Csend, "X w"},
+
     /*{MODMASK, XK_Escape, Kcommand,  Cjump,       NULL},*/
+	/* Selection. */
     {MODMASK, XK_x, Kcommand,  Ccut,        NULL},
     {MODMASK, XK_c, Kcommand,  Csnarf,      NULL},
     {MODMASK, XK_v, Kcommand,  Cpaste,      NULL},
