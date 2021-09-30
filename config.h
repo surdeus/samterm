@@ -28,21 +28,23 @@ struct Binding {
 
 static Binding bindings[] ={    
     /* Suppress control key combinations unless explicitly bound. */
-    {ControlMask, XK_VoidSymbol,    Kcommand, Cnone,        NULL},
+    {MODMASK, XK_VoidSymbol,    Kcommand, Cnone,        NULL},
 
     /* Motion commands following the WordStar diamond. */
-    {ControlMask, XK_k, Kcommand,  Clineup,     NULL},
-    {ControlMask, XK_j, Kcommand,  Clinedown,   NULL},
-    {ControlMask, XK_l, Kcommand,  Ccharright,  NULL},
-    {ControlMask, XK_h, Kcommand,  Ccharleft,   NULL},
-    {ControlMask, XK_u, Kcommand,  Cdelbol,     NULL},
-    {ControlMask, XK_w, Kcommand,  Cdelword,    NULL},
-    {ControlMask, XK_BackSpace,     Kcommand,  Cdelword,    NULL},
-    {ControlMask, XK_k, Kcommand,  Cjump,       NULL},
-    {ControlMask, XK_x, Kcommand,  Ccut,        NULL},
-    {ControlMask, XK_c, Kcommand,  Csnarf,      NULL},
-    {ControlMask, XK_v, Kcommand,  Cpaste,      NULL},
-    {ControlMask, XK_q, Kcommand,  Cexchange,   NULL},
+    {MODMASK, XK_k, Kcommand,  Clineup,     NULL},
+    {MODMASK, XK_j, Kcommand,  Clinedown,   NULL},
+    {MODMASK, XK_l, Kcommand,  Ccharright,  NULL},
+    {MODMASK, XK_h, Kcommand,  Ccharleft,   NULL},
+    {MODMASK, XK_e, Kcommand,  Ceol,   NULL},
+    {MODMASK, XK_a, Kcommand,  Cbol,   NULL},
+    {MODMASK, XK_u, Kcommand,  Cdelbol,     NULL},
+    {MODMASK, XK_w, Kcommand,  Cdelword,    NULL},
+    {MODMASK, XK_BackSpace,     Kcommand,  Cdelword,    NULL},
+    /*{MODMASK, XK_Escape, Kcommand,  Cjump,       NULL},*/
+    {MODMASK, XK_x, Kcommand,  Ccut,        NULL},
+    {MODMASK, XK_c, Kcommand,  Csnarf,      NULL},
+    {MODMASK, XK_v, Kcommand,  Cpaste,      NULL},
+    {MODMASK, XK_q, Kcommand,  Cexchange,   NULL},
 
     /* Handle arrow keys, page up/down, and escape. */
     {0,           XK_Up,            Kcommand, Cscrollup,    NULL},
@@ -51,7 +53,7 @@ static Binding bindings[] ={
     {0,           XK_Down,          Kcommand, Cscrolldown,  NULL},
     {0,           XK_Next,          Kcommand, Cscrolldown,  NULL},
     {0,           XK_Right,         Kcommand, Cscrolldown,  NULL},
-    {0,           XK_Escape,        Kcommand, Cescape,      NULL},
+    {0, XK_Escape, Kcommand, Cjump, NULL},
     
     /* More fundamental stuff: backspace, delete, etc. */
     {0,           XK_BackSpace,     Kcommand, Cdelbs,   NULL},
@@ -78,7 +80,7 @@ static Binding bindings[] ={
     {0,           XK_hyphen,        Kraw,     '-',      NULL},
 
     /* Use Control-Tab to insert a literal tab when tab expansion is enabled. */
-    {ControlMask, XK_Tab,           Kraw,     '\t',     NULL},
+    {MODMASK, XK_Tab,           Kraw,     '\t',     NULL},
 
     {0,           0,                Kend,     0,        NULL}
 };
