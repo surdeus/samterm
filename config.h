@@ -38,8 +38,9 @@ static Binding bindings[] ={
     {MODMASK, XK_e, Kcommand,  Ceol,   NULL},
     {MODMASK, XK_a, Kcommand,  Cbol,   NULL},
     {MODMASK, XK_u, Kcommand,  Cdelbol,     NULL},
-    {MODMASK, XK_w, Kcommand,  Cdelword,    NULL},
     {MODMASK, XK_BackSpace,     Kcommand,  Cdelword,    NULL},
+    {MODMASK, XK_s, Kcommand,  Cwrite,     NULL},
+    {MODMASK|ShiftMask, XK_s, Kcommand,  Csend, "X w"},
     /*{MODMASK, XK_Escape, Kcommand,  Cjump,       NULL},*/
     {MODMASK, XK_x, Kcommand,  Ccut,        NULL},
     {MODMASK, XK_c, Kcommand,  Csnarf,      NULL},
