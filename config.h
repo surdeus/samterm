@@ -40,7 +40,6 @@ static Binding bindings[] ={
 
 	/* Delete. */
     {MODMASK, XK_u, Kcommand,  Cdelbol,     NULL},
-    {MODMASK|ShiftMask, XK_u, Kcommand, Cdeleol, NULL},
     {MODMASK, XK_BackSpace, Kcommand, Cdelword, NULL},
     {MODMASK, XK_w, Kcommand, Cdelword, 0},
 
@@ -56,12 +55,14 @@ static Binding bindings[] ={
     {MODMASK, XK_q, Kcommand,  Cexchange,   NULL},
 
     /* Handle arrow keys, page up/down, and escape. */
-    {0,           XK_Up,            Kcommand, Cscrollup,    NULL},
+    {0,           XK_Left,          Kcommand, Ccharleft,    NULL},
+    {0,           XK_Right,         Kcommand, Ccharright,  NULL},
+    {0,           XK_Up,         Kcommand, Clineup,  NULL},
+    {0,           XK_Down,         Kcommand, Clinedown,  NULL},
+    {ShiftMask, XK_Up, Kcommand, Cscrollup, NULL},
+    {ShiftMask, XK_Down, Kcommand, Cscrolldown, NULL},
     {0,           XK_Prior,         Kcommand, Cscrollup,    NULL},
-    {0,           XK_Left,          Kcommand, Cscrollup,    NULL},
-    {0,           XK_Down,          Kcommand, Cscrolldown,  NULL},
     {0,           XK_Next,          Kcommand, Cscrolldown,  NULL},
-    {0,           XK_Right,         Kcommand, Cscrolldown,  NULL},
     {0, XK_Escape, Kcommand, Cjump, NULL},
     
     /* More fundamental stuff: backspace, delete, etc. */
