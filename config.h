@@ -37,6 +37,8 @@ static Binding bindings[] ={
     {MODMASK, XK_h, Kcommand,  Ccharleft,   NULL},
     {MODMASK, XK_e, Kcommand,  Ceol,   NULL},
     {MODMASK, XK_a, Kcommand,  Cbol,   NULL},
+    {MODMASK|ShiftMask, XK_b, Kcommand, Cscrollup,  NULL},
+    {MODMASK|ShiftMask, XK_f, Kcommand, Cscrolldown,  NULL},
 
 	/* Delete. */
     {MODMASK, XK_u, Kcommand,  Cdelbol,     NULL},
