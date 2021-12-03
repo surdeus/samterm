@@ -49,6 +49,17 @@ static Binding bindings[] ={
     {MODMASK, XK_s, Kcommand,  Cwrite,     NULL},
     {MODMASK|ShiftMask, XK_s, Kcommand,  Csend, "X w"},
 
+	/* Tabs. */
+	{MODMASK, XK_t, Kcommand, Csend, "|tab-"},
+	{MODMASK|ShiftMask, XK_t, Kcommand, Csend, "|tab+"},
+
+	/* Undo. */
+	{MODMASK, XK_z, Kcommand, Csend, "u"},
+
+	/* Search. */
+	{MODMASK, XK_n, Kcommand, Csearch, 0},
+	{MODMASK|ShiftMask, XK_n, Kcommand, Clook, 0},
+
     /*{MODMASK, XK_Escape, Kcommand,  Cjump,       NULL},*/
 	/* Selection. */
     {MODMASK, XK_x, Kcommand,  Ccut,        NULL},
