@@ -602,9 +602,14 @@ cmdscrolldownline(Flayer *l, int64_t a, Text *t, const char *arg)
 {
     int64_t e = t->rasp.nrunes;
 
-    horigin(t->tag,
-            l->origin + frcharofpt(&l->f,Pt(l->f.r.min.x, l->f.r.min.y + l->f.fheight)),
-            l);
+	horigin(t->tag,
+		l->origin + frcharofpt(
+			&l->f,
+			Pt(
+				l->f.r.min.x,
+				l->f.r.min.y + l->f.fheight
+			)
+	), l);
 
     return a;
 }
