@@ -37,10 +37,10 @@ static Binding bindings[] ={
     {MODMASK, XK_h, Kcommand,  Ccharleft,   NULL},
     {MODMASK, XK_e, Kcommand,  Ceol,   NULL},
     {MODMASK, XK_a, Kcommand,  Cbol,   NULL},
-    {MODMASK|ShiftMask, XK_b, Kcommand, Cscrollup,  NULL},
-    {MODMASK|ShiftMask, XK_f, Kcommand, Cscrolldown,  NULL},
     {MODMASK, XK_b, Kcommand, Cscrollupline,  NULL},
     {MODMASK, XK_f, Kcommand, Cscrolldownline,  NULL},
+    {MODMASK|ShiftMask, XK_b, Kcommand, Cscrollup,  NULL},
+    {MODMASK|ShiftMask, XK_f, Kcommand, Cscrolldown,  NULL},
 
 	/* Delete. */
     {MODMASK, XK_u, Kcommand,  Cdelbol,     NULL},
@@ -54,6 +54,7 @@ static Binding bindings[] ={
 	/* Tabs. */
 	{MODMASK, XK_greater, Kcommand, Csend, "|tab+"},
 	{MODMASK, XK_less, Kcommand, Csend, "|tab-"},
+	{MODMASK, XK_asciitilde, Kcommand, Csend, "|togglecase"},
 
 	/* Undo. */
 	{MODMASK, XK_z, Kcommand, Csend, "u"},
