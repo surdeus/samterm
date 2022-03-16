@@ -6,7 +6,7 @@
 
 #define MODMASK ControlMask
 
-int expandtabs = 0;
+int expandtabs = 1;
 int tabw = 4;
 int autoindent = 1;
 char *fontstr = "DeJavu Sans Mono:size=12:antialias=true:autohint=true" ;
