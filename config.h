@@ -56,6 +56,10 @@ static Binding bindings[] ={
 	{MODMASK, XK_less, Kcommand, Csend, "|tab-"},
 	{MODMASK, XK_asciitilde, Kcommand, Csend, "|togglecase"},
 
+	/* Clipboard. */
+	{MODMASK, XK_y, Kcommand, Csend, "|xsel"},
+	{MODMASK|ShiftMask, XK_y, Kcommand, Csend, "|xsel -c"},
+
 	/* Undo. */
 	{MODMASK, XK_z, Kcommand, Csend, "u"},
 
