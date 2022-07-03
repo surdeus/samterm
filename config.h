@@ -84,8 +84,8 @@ static Binding bindings[] ={
     /* More fundamental stuff: backspace, delete, etc. */
     {0,           XK_BackSpace,     Kcommand, Cdelbs,   NULL},
     {0,           XK_Delete,        Kcommand, Cdel,     NULL},
-    {0,           XK_Tab,           Kcommand, Ctab,     NULL},
     {0,           XK_Return,        Kraw,     '\n',     NULL},
+    {0, XK_Tab, Kraw, '\t', NULL},
     {0,           XK_KP_Enter,      Kraw,     '\n',     NULL},
     {0,           XK_Linefeed,      Kraw,     '\r',     NULL},
     {0,           XK_KP_0,          Kraw,     '0',      NULL},
@@ -106,7 +106,7 @@ static Binding bindings[] ={
     {0,           XK_hyphen,        Kraw,     '-',      NULL},
 
     /* Use Control-Tab to insert a literal tab when tab expansion is enabled. */
-    {MODMASK, XK_Tab,           Kraw,     '\t',     NULL},
+    {MODMASK, XK_Tab, Kcommand, Ctab, NULL},
 
     {0,           0,                Kend,     0,        NULL}
 };
